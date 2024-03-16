@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".WelcomeFragment"
+    android:background="@color/grey"
+    android:orientation="vertical"
+    android:padding="40dp">
+
+
+    <ImageView
+        android:id="@+id/image_welcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:src="@drawable/welcome"
+        android:layout_marginTop="90dp"
+        android:layout_marginBottom="30dp"/>
+
+    <TextView
+        android:id="@+id/header_welcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        android:layout_gravity="center"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:text="Get things done with TODO"
+        android:layout_marginBottom="30dp"/>
+
+    <TextView
+        android:id="@+id/text_welcome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        android:text="Lorem ipsum dolor sit amet, consectetur
+adipiscing elit. Nunc vulputate libero
+et velit interdum, ac aliquet odio mattis."
+        android:textAlignment="center"
+        android:layout_marginBottom="30dp"/>
+
+    <Button
+        android:id="@+id/get_started"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/light_blue"
+        android:text="Get Started"
+        app:cornerRadius="0dp" />
+
+</LinearLayout>
