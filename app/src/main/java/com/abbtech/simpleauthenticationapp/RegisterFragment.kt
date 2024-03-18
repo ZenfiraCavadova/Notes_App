@@ -1,9 +1,11 @@
 package com.abbtech.simpleauthenticationapp
 
 import android.app.AlertDialog
+import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.provider.ContactsContract.CommonDataKinds.Email
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -81,13 +83,23 @@ class RegisterFragment : Fragment() {
             } else if (isEmailRegistered(email)) {
                 showAlert("This email is already registered.")
             } else {
-                saveUserData(fullname, email, psw)
+                with(sharedPreferences.edit()){
+                    putString(FULLNAME, fullname)
+                    putString(EMAIL, email)
+                    putString(PASSWORD, psw)
+                    putBoolean(getEmailRegisteredKey(email), true)
+                    apply()
+                }
+                Log.e("RegisterFragment", "Saving: Email - $email, Password - $psw")
+                startActivity(Intent(requireContext(), NoteActivity::class.java))
+                requireActivity().finish()
             }
         }
 
         binding.signIn.setOnClickListener {
             checkAndNavigateToLoginScreen()
         }
+
     }
     private fun setBorder(editText: EditText, hasFocus:Boolean){
         val backgroundResource=if (hasFocus) R.drawable.border_focused else R.drawable.edit_text_border

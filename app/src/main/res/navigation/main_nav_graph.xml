@@ -39,6 +39,9 @@
         <action
             android:id="@+id/action_registerFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_registerFragment_to_noteActivity2"
+            app:destination="@id/noteActivity2" />
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
@@ -55,6 +58,9 @@
         <action
             android:id="@+id/action_loginFragment_to_registerFragment"
             app:destination="@id/registerFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_noteActivity2"
+            app:destination="@id/noteActivity2" />
     </fragment>
     <fragment
         android:id="@+id/dashboardFragment"
@@ -65,4 +71,9 @@
             android:name="username"
             app:argType="string" />
     </fragment>
+    <activity
+        android:id="@+id/noteActivity2"
+        android:name="com.abbtech.simpleauthenticationapp.NoteActivity"
+        android:label="activity_note"
+        tools:layout="@layout/activity_note" />
 </navigation>

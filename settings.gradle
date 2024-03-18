@@ -14,3 +14,7 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Simple Authentication App"
 include ':app'
+include ':feature:home'
+include ':feature:search'
+include ':feature:event'
+include ':feature:create_new'

@@ -3,11 +3,13 @@ package com.abbtech.simpleauthenticationapp
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.Window
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import com.abbtech.simpleauthenticationapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+
 
     lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {

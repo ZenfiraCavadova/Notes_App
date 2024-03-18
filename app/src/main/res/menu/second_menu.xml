@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/home_nav_graph"
+        android:icon="@drawable/ic_home"
+        android:title="Notes"
+        app:destination="@id/home_nav_graph"
+        />
+    <item
+        android:id="@+id/event_nav_graph"
+        android:icon="@drawable/ic_event"
+        android:title="Event"
+        app:destination="@id/event_nav_graph"
+
+        />
+    <item
+        android:id="@+id/search_nav_graph"
+        android:icon="@drawable/ic_search"
+        android:title="Search"
+        app:destination="@id/search_nav_graph"
+        />
+    <item
+        android:id="@+id/create_new_nav_graph"
+        android:icon="@drawable/ic_create_new"
+        android:title="Create Note"
+
+        />
+</menu>
