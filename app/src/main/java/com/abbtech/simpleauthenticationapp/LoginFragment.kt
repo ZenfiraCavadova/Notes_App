@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
 import androidx.navigation.fragment.findNavController
 import androidx.security.crypto.EncryptedSharedPreferences
 import androidx.security.crypto.MasterKey
@@ -66,7 +67,6 @@ class LoginFragment : Fragment() {
             val storedPassword = sharedPreferences.getString(PASSWORD, "") ?: ""
             val storedFullname = sharedPreferences.getString(FULLNAME, "") ?: ""
 
-
             if (enterEmail.trim() == storedEmail?.trim() && enterPsw.trim() == storedPassword?.trim()) {
                 val intent = Intent(requireActivity(), NoteActivity::class.java)
                 startActivity(intent)
@@ -77,6 +77,12 @@ class LoginFragment : Fragment() {
         binding.signUp.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
         }
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                // Navigate to previous destination
+                findNavController().popBackStack(R.id.welcomeFragment, false)
+            }
+        })
     }
 
     private fun navigateToDashboard(username:String){

@@ -8,7 +8,7 @@
     android:background="@color/light_grey">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/NoteTitle"
         android:layout_width="237dp"
         android:layout_height="45dp"
         android:layout_marginTop="16dp"
@@ -22,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/textView2"
+        android:id="@+id/noteText"
         android:layout_width="365dp"
         android:layout_height="550dp"
         android:layout_marginTop="28dp"
@@ -30,17 +30,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.434"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/NoteTitle" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/saveBtn"
         android:layout_width="358dp"
         android:layout_height="42dp"
         android:layout_marginBottom="16dp"
         android:text="Save"
         android:textColor="@color/white"
         android:backgroundTint="@color/black"
-        app:cornerRadius="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

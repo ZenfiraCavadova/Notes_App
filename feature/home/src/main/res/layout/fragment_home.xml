@@ -35,7 +35,7 @@
         android:orientation="horizontal">
 
         <LinearLayout
-            android:id="@+id/containerLayout1"
+            android:id="@+id/note_container"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/rounded_edittext"
@@ -49,7 +49,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textView">
 
             <ImageView
-                android:id="@+id/imageView"
+                android:id="@+id/note_img"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
@@ -58,7 +58,7 @@
                 android:background="@drawable/circle_background" />
 
             <TextView
-                android:id="@+id/editTextText2"
+                android:id="@+id/note_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -69,7 +69,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/containerLayout3"
+            android:id="@+id/Favorite_Container"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/rounded_edittext"
@@ -82,7 +82,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textView">
 
             <ImageView
-                android:id="@+id/imageView3"
+                android:id="@+id/Favorite_img"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
@@ -90,7 +90,7 @@
                 android:src="@drawable/ic_star" />
 
             <TextView
-                android:id="@+id/editTextText3"
+                android:id="@+id/Favorite_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -103,6 +103,7 @@
 
 
     <LinearLayout
+        android:id="@+id/container_second"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
@@ -112,7 +113,7 @@
         android:orientation="horizontal">
 
         <LinearLayout
-            android:id="@+id/containerLayout4"
+            android:id="@+id/hidden_container"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/rounded_edittext"
@@ -126,7 +127,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textView">
 
             <ImageView
-                android:id="@+id/imageView4"
+                android:id="@+id/hidden_img"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
@@ -134,7 +135,7 @@
                 android:src="@drawable/ic_hidden" />
 
             <TextView
-                android:id="@+id/editTextText4"
+                android:id="@+id/hidden_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:inputType="text"
@@ -144,7 +145,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/containerLayout5"
+            android:id="@+id/trash_container"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/rounded_edittext"
@@ -157,7 +158,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textView">
 
             <ImageView
-                android:id="@+id/imageView5"
+                android:id="@+id/trash_img"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
@@ -165,7 +166,7 @@
                 android:src="@drawable/ic_trash" />
 
             <TextView
-                android:id="@+id/editTextText5"
+                android:id="@+id/trash_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:inputType="text"
