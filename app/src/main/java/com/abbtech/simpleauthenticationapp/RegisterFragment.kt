@@ -4,8 +4,6 @@ import android.app.AlertDialog
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.provider.ContactsContract.CommonDataKinds.Email
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -15,7 +13,6 @@ import androidx.navigation.fragment.findNavController
 import androidx.security.crypto.EncryptedSharedPreferences
 import androidx.security.crypto.MasterKey
 import com.abbtech.simpleauthenticationapp.databinding.FragmentRegisterBinding
-import com.abbtech.simpleauthenticationapp.databinding.FragmentWelcomeBinding
 
 class RegisterFragment : Fragment() {
     lateinit var binding: FragmentRegisterBinding
@@ -88,9 +85,10 @@ class RegisterFragment : Fragment() {
                     putString(EMAIL, email)
                     putString(PASSWORD, psw)
                     putBoolean(getEmailRegisteredKey(email), true)
+                    putBoolean("has_registered", true)
+                    putBoolean("isRegistrationSuccessful", true)
                     apply()
                 }
-                Log.e("RegisterFragment", "Saving: Email - $email, Password - $psw")
                 startActivity(Intent(requireContext(), NoteActivity::class.java))
                 requireActivity().finish()
             }

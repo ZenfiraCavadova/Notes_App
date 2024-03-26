@@ -7,11 +7,11 @@
     tools:context=".CreateNewFragment"
     android:background="@color/light_grey">
 
-    <TextView
+    <EditText
         android:id="@+id/NoteTitle"
-        android:layout_width="237dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="30dp"
         android:textSize="24sp"
         android:textStyle="bold"
         android:hint="Page Title"
@@ -22,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/noteText"
+        android:id="@+id/description"
         android:layout_width="365dp"
         android:layout_height="550dp"
         android:layout_marginTop="28dp"
@@ -35,7 +35,7 @@
     <Button
         android:id="@+id/saveBtn"
         android:layout_width="358dp"
-        android:layout_height="42dp"
+        android:layout_height="60dp"
         android:layout_marginBottom="16dp"
         android:text="Save"
         android:textColor="@color/white"

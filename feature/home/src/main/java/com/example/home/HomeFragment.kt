@@ -5,13 +5,18 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
+import com.example.home.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
+    lateinit var binding: FragmentHomeBinding
+    val viewModel by viewModels<HomeViewModel>()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_home, container, false)
+        binding=FragmentHomeBinding.inflate(inflater,container,false)
+        return binding.root
     }
 
 }
