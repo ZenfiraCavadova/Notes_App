@@ -45,10 +45,10 @@ class RegisterFragment : Fragment() {
         val pswEditText=binding.password
         val rePswEditText=binding.repassword
 
-        nameEditText.setBackgroundResource(R.drawable.edit_text_border)
-        emailEditText.setBackgroundResource(R.drawable.edit_text_border)
-        pswEditText.setBackgroundResource(R.drawable.edit_text_border)
-        rePswEditText.setBackgroundResource(R.drawable.edit_text_border)
+        nameEditText.setBackgroundResource(R.drawable.rounded_edittext)
+        emailEditText.setBackgroundResource(R.drawable.rounded_edittext)
+        pswEditText.setBackgroundResource(R.drawable.rounded_edittext)
+        rePswEditText.setBackgroundResource(R.drawable.rounded_edittext)
 
         nameEditText.setOnFocusChangeListener{_,hasFocus ->
             setBorder(nameEditText,hasFocus)
@@ -100,7 +100,7 @@ class RegisterFragment : Fragment() {
 
     }
     private fun setBorder(editText: EditText, hasFocus:Boolean){
-        val backgroundResource=if (hasFocus) R.drawable.border_focused else R.drawable.edit_text_border
+        val backgroundResource=if (hasFocus) R.drawable.border_focused else R.drawable.rounded_edittext
         editText.setBackgroundResource(backgroundResource)
     }
     private fun checkAndNavigateToLoginScreen() {

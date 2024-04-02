@@ -19,7 +19,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="60dp"
         android:layout_marginBottom="30dp"
-        android:text="Welcome Back !" />
+        android:text="@string/login_welcome" />
 
     <ImageView
         android:id="@+id/header_image"
@@ -35,12 +35,12 @@
         android:layout_height="48dp"
         android:layout_gravity="center"
         android:layout_marginBottom="30dp"
-        android:background="@color/white"
+        android:background="@drawable/rounded_edittext"
         android:textColor="@color/black"
         android:textColorHint="@color/grey"
         android:ems="10"
         android:inputType="text"
-        android:hint="Enter your email address"/>
+        android:hint="@string/email_input"/>
 
     <EditText
         android:id="@+id/psw_inp"
@@ -48,11 +48,11 @@
         android:layout_height="48dp"
         android:layout_gravity="center"
         android:layout_marginBottom="30dp"
-        android:background="@color/white"
+        android:background="@drawable/rounded_edittext"
         android:textColor="@color/black"
         android:textColorHint="@color/grey"
         android:ems="10"
-        android:hint="Enter your password"
+        android:hint="@string/password_input"
         android:inputType="textPassword" />
 
     <Button
@@ -64,7 +64,7 @@
         android:backgroundTint="@color/light_blue"
         app:cornerRadius="0dp"
         android:textColor="@color/white"
-        android:text="Login" />
+        android:text="@string/login_btn" />
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -77,7 +77,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Don’t have an account? "
+            android:text="@string/dont_have_account"
             android:textColor="@color/black"
             android:textSize="16sp" />
 
@@ -87,7 +87,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:background="#00FFFFFF"
-            android:text="sign up"
+            android:text="@string/sign_up"
             android:textColor="@color/light_blue"
             android:textSize="16sp" />
 

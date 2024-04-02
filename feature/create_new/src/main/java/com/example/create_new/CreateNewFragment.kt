@@ -24,6 +24,9 @@ class CreateNewFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+            val description=binding.description
+            description.requestFocus()
+
         binding.saveBtn.setOnClickListener {
             val title = binding.NoteTitle.text.toString()
             val description = binding.description.text.toString()
@@ -31,7 +34,7 @@ class CreateNewFragment : Fragment() {
 
         }
         viewModel.liveData.observe(viewLifecycleOwner) { status ->
-            Toast.makeText(context, status, Toast.LENGTH_SHORT).show()
+
         }
 
     }

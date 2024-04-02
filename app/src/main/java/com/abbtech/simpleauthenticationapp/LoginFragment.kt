@@ -41,14 +41,14 @@ class LoginFragment : Fragment() {
         val emailEditText = binding.emailInp
         val pswEditText=binding.pswInp
 
-        emailEditText.setBackgroundResource(R.drawable.edit_text_border)
-        pswEditText.setBackgroundResource(R.drawable.edit_text_border)
+        emailEditText.setBackgroundResource(R.drawable.rounded_edittext)
+        pswEditText.setBackgroundResource(R.drawable.rounded_edittext)
 
         emailEditText.setOnFocusChangeListener { _, hasFocus ->
             if (hasFocus) {
                 emailEditText.setBackgroundResource(R.drawable.border_focused)
             } else {
-                emailEditText.setBackgroundResource(R.drawable.edit_text_border)
+                emailEditText.setBackgroundResource(R.drawable.rounded_edittext)
             }
         }
 
@@ -56,7 +56,7 @@ class LoginFragment : Fragment() {
             if (hasFocus) {
                 pswEditText.setBackgroundResource(R.drawable.border_focused)
             } else {
-                pswEditText.setBackgroundResource(R.drawable.edit_text_border)
+                pswEditText.setBackgroundResource(R.drawable.rounded_edittext)
             }
         }
 

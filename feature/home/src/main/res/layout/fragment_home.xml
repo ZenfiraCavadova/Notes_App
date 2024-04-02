@@ -15,7 +15,7 @@
         android:alpha="0.6"
         android:background="@drawable/rounded_edittext"
         android:gravity="center_vertical"
-        android:hint="Search"
+        android:hint="@string/search_inp"
         android:inputType="text"
         android:textColor="@color/dark_grey"
         android:textColorHint="@color/dark_grey"
@@ -36,7 +36,7 @@
 
         <LinearLayout
             android:id="@+id/note_container"
-            android:layout_width="wrap_content"
+            android:layout_width="170dp"
             android:layout_height="wrap_content"
             android:background="@drawable/rounded_edittext"
             android:gravity="center_vertical"
@@ -62,15 +62,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:inputType="text"
-                android:text="All Notes"
+                android:text="@string/all_notes"
                 android:textColor="@color/black"
                 android:textSize="22sp" />
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/Favorite_Container"
-            android:layout_width="wrap_content"
+            android:layout_width="170dp"
             android:layout_height="wrap_content"
             android:background="@drawable/rounded_edittext"
             android:gravity="center_vertical"
@@ -94,8 +93,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:inputType="text"
-                android:text="Favourites"
+                android:text="@string/favourites"
                 android:textColor="@color/black"
                 android:textSize="22sp" />
         </LinearLayout>
@@ -114,7 +112,7 @@
 
         <LinearLayout
             android:id="@+id/hidden_container"
-            android:layout_width="wrap_content"
+            android:layout_width="170dp"
             android:layout_height="wrap_content"
             android:background="@drawable/rounded_edittext"
             android:gravity="center_vertical"
@@ -138,15 +136,14 @@
                 android:id="@+id/hidden_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="text"
-                android:text="Hidden   "
+                android:text="@string/hidden"
                 android:textColor="@color/black"
                 android:textSize="22sp" />
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/trash_container"
-            android:layout_width="wrap_content"
+            android:layout_width="170dp"
             android:layout_height="wrap_content"
             android:background="@drawable/rounded_edittext"
             android:gravity="center_vertical"
@@ -169,10 +166,22 @@
                 android:id="@+id/trash_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="text"
-                android:text="Trash       "
+                android:text="@string/trash"
                 android:textColor="@color/black"
                 android:textSize="22sp" />
         </LinearLayout>
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/notes_list"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="20dp"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        android:textStyle="normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/container_second" />
 </androidx.constraintlayout.widget.ConstraintLayout>

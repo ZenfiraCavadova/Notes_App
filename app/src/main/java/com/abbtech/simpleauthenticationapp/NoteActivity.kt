@@ -14,6 +14,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.abbtech.simpleauthenticationapp.databinding.ActivityNoteBinding
 import androidx.appcompat.widget.Toolbar
+import com.example.data.database.db.DatabaseManager
 
 class NoteActivity : AppCompatActivity() {
 
@@ -25,6 +26,7 @@ class NoteActivity : AppCompatActivity() {
         NavHostFragment
         binding = ActivityNoteBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        DatabaseManager.initDatabase(this)
         initNavigation()
     }
 

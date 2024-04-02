@@ -7,6 +7,7 @@ import android.view.Window
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import com.abbtech.simpleauthenticationapp.databinding.ActivityMainBinding
+import com.example.data.database.db.DatabaseManager
 
 class MainActivity : AppCompatActivity() {
 
@@ -16,6 +17,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         NavHostFragment
         binding=ActivityMainBinding.inflate(LayoutInflater.from(this))
+        DatabaseManager.initDatabase(this)
         setContentView(binding.root)
     }
     override fun onBackPressed() {

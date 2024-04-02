@@ -1,7 +1,16 @@
 package com.example.domain.entities
 
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 
+@Entity (tableName = "notes-database")
 data class Note (
+    @ColumnInfo("title")
     val title: String,
-    val description:String
+    @ColumnInfo("description")
+    val description:String,
+    @ColumnInfo("ID")
+    @PrimaryKey(autoGenerate = true)
+    val id:Long=0
 )
