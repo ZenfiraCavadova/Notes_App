@@ -30,7 +30,7 @@ class CreateNewFragment : Fragment() {
         binding.saveBtn.setOnClickListener {
             val title = binding.NoteTitle.text.toString()
             val description = binding.description.text.toString()
-            viewModel.saveNote(title,description)
+            viewModel.saveNote(title,description, System.currentTimeMillis())
 
         }
         viewModel.liveData.observe(viewLifecycleOwner) { status ->

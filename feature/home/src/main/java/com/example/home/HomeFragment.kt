@@ -9,10 +9,12 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import com.example.domain.entities.Note
 import com.example.home.databinding.FragmentHomeBinding
+import com.example.home.notes_list.NotesAdapter
 
 class HomeFragment : Fragment() {
     lateinit var binding: FragmentHomeBinding
     val viewModel by viewModels<HomeViewModel>()
+    private lateinit var adapter: NotesAdapter
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -23,9 +25,12 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        adapter=NotesAdapter()
+        binding.notesList.adapter=adapter
 
         viewModel.liveData.observe(viewLifecycleOwner){notes->
-            displayNotes(notes)
+//            displayNotes(notes)
+            adapter.submitList(notes)
         }
     }
 
@@ -35,7 +40,7 @@ class HomeFragment : Fragment() {
             Log.e("HOME","${note.title}: ${note.description}\n")
             notesText.append("${note.title}: ${note.description}\n")
         }
-        binding.notesList.text=notesText.toString()
+//        binding.notesList.text=notesText.toString()
     }
 
 }

@@ -14,8 +14,8 @@ class CreateNewViewModel():ViewModel() {
     private val noteRepository:NoteRepository by lazy { NoteRepositoryImpl() }
     private val _livedata=MutableLiveData<String>()
     val liveData: LiveData<List<Note>> =noteRepository.getNote()
-    fun saveNote(title: String, description: String) {
-        val note = Note(title, description)
+    fun saveNote(title: String, description: String,creationDate:Long) {
+        val note = Note(title, description, creationDate)
         viewModelScope.launch(Dispatchers.IO) {
             noteRepository.saveNote(note)
         }

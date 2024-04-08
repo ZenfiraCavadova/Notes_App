@@ -10,6 +10,8 @@ data class Note (
     val title: String,
     @ColumnInfo("description")
     val description:String,
+    @ColumnInfo("creationDate")
+    val creationDate:Long,
     @ColumnInfo("ID")
     @PrimaryKey(autoGenerate = true)
     val id:Long=0

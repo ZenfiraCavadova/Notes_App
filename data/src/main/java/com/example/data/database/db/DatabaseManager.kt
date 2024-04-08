@@ -8,8 +8,10 @@ object DatabaseManager {
     fun initDatabase(context: Context){
         database = Room.databaseBuilder(
             context,
-            AppDatabase::class.java, "notes-database"
-        ).build()
+            AppDatabase::class.java, "notes_database"
+        )
+            .addMigrations(AppDatabase.MIGRATION_1_2)
+            .build()
     }
 
 }
