@@ -8,6 +8,7 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Update
 import com.example.domain.entities.Note
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface NotesDao {
@@ -21,5 +22,6 @@ interface NotesDao {
     fun update(note: Note)
 
     @Query("SELECT * FROM `notes-database`")
-    fun getAll():LiveData<List<Note>>
+    fun getAll():Flow<List<Note>>
+//    fun getAll():LiveData<List<Note>>
 }
