@@ -1,5 +1,6 @@
 package com.example.create_new
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -7,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.example.core.BaseFragment
+import com.example.core.NotificationHelper
 import com.example.create_new.databinding.FragmentCreateNewBinding
 
 
@@ -56,7 +58,24 @@ class CreateNewFragment : BaseFragment<FragmentCreateNewBinding,CreateNewViewMod
     }
     override fun onEffectUpdate(effect: CreateNewEffect) {
         when (effect) {
-            CreateNewEffect.OnNoteAdded -> Toast.makeText(requireContext(), "Note Added", Toast.LENGTH_SHORT).show()
+            CreateNewEffect.OnNoteAdded -> alertDialog()
         }
+    }
+
+
+    private fun alertDialog(){
+        AlertDialog.Builder(requireContext())
+            .setTitle("Note Saving")
+            .setMessage("Are you sure saving note?")
+            .setPositiveButton("Yes"){_,_->
+                Toast.makeText(requireContext(),"Note Added",Toast.LENGTH_LONG).show()
+                NotificationHelper.showNotification(requireContext())
+            }
+            .setNegativeButton("No"){_,_->
+                Toast.makeText(requireContext(),"Note doesn't added",Toast.LENGTH_LONG).show()
+            }
+            .show()
+
+
     }
 }

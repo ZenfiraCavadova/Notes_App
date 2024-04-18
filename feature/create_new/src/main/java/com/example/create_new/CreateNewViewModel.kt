@@ -5,6 +5,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.core.BaseViewModel
 import com.example.data.repositories.NoteRepositoryImpl
 import com.example.domain.entities.Note
+import com.example.domain.entities.request_models.NoteRequestModel
 import com.example.domain.repositories.NoteRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
@@ -44,6 +45,7 @@ class CreateNewViewModel():BaseViewModel<CreateNewState,CreateNewEffect,CreateNe
     }
     fun saveNote(title: String, description: String) {
         viewModelScope.launch(Dispatchers.IO) {
+            noteRepository.addNoteRemote(NoteRequestModel(title, description))
             noteRepository.saveNote(Note(title, description, System.currentTimeMillis()))
             postEffect(CreateNewEffect.OnNoteAdded)
         }

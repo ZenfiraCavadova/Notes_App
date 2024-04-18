@@ -49,10 +49,12 @@ abstract class BaseViewModel<State, Effect, Event> : ViewModel() {
     }
 
     private fun initEventSubscribers() {
-        _event
+        _event.onEach {
+            onEventUpdate(it)
+        }.launchIn(viewModelScope)
     }
 
     protected open fun onEventUpdate(event: Event) {}
-    fun getCurrentState() = viewState
+    fun getCurrentState() = state.value
 
 }

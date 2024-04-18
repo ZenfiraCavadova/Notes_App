@@ -8,6 +8,7 @@ import com.example.core.BaseViewModel
 import com.example.data.repositories.NoteRepositoryImpl
 import com.example.domain.entities.Note
 import com.example.domain.repositories.NoteRepository
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -32,7 +33,17 @@ class HomeViewModel : BaseViewModel<HomeState,HomeEffect, HomeEvent>()  {
                         )
                 )
             }.launchIn(viewModelScope)
+        loadNotes()
     }
+
+    private fun loadNotes() {
+        viewModelScope.launch(Dispatchers.IO) {
+            val notes=noteRepository.loadNotes()
+            notes
+        }
+    }
+
+
 
 //    override fun onEventUpdate(event: HomeEvent) {
 //        when (event) {
