@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.core.BaseViewModel
 import com.example.data.repositories.NoteRepositoryImpl
 import com.example.domain.entities.Note
+import com.example.domain.entities.response_models.NoteResponseModel
 import com.example.domain.repositories.NoteRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
@@ -18,8 +19,8 @@ import kotlinx.coroutines.launch
 
 class HomeViewModel : BaseViewModel<HomeState,HomeEffect, HomeEvent>()  {
     private val noteRepository: NoteRepository by lazy { NoteRepositoryImpl() }
-    private val _notes = MutableStateFlow<List<Note>>(emptyList())
-    val notes: StateFlow<List<Note>> = _notes
+    private val _notes = MutableStateFlow<List<NoteResponseModel>>(emptyList())
+    val notes: StateFlow<List<NoteResponseModel>> = _notes
 //    private val _livedata=MutableLiveData<List<Note>>()
 //    val liveData :LiveData<List<Note>> = noteRepository.getNote()
 
@@ -38,8 +39,8 @@ class HomeViewModel : BaseViewModel<HomeState,HomeEffect, HomeEvent>()  {
 
     private fun loadNotes() {
         viewModelScope.launch(Dispatchers.IO) {
-            val notes=noteRepository.loadNotes()
-            notes
+            _notes.emit(noteRepository.loadNotes())
+            // TODO update this part of flow
         }
     }
 
