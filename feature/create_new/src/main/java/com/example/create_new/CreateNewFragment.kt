@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.example.core.BaseFragment
+import com.example.core.NotificationHelper
 import com.example.create_new.databinding.FragmentCreateNewBinding
 
 
@@ -67,11 +68,10 @@ class CreateNewFragment : BaseFragment<FragmentCreateNewBinding,CreateNewViewMod
             .setTitle("Note Saving")
             .setMessage("Are you sure saving note?")
             .setPositiveButton("Yes") { _, _ ->
-                // User clicked "Yes" to save the note
                 saveNote()
+                NotificationHelper.showNotification(requireContext())
             }
             .setNegativeButton("No") { _, _ ->
-                // User clicked "No"
                 Toast.makeText(requireContext(), "Note doesn't added", Toast.LENGTH_LONG).show()
             }
             .show()
