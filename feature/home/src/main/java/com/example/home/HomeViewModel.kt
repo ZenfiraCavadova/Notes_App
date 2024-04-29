@@ -10,7 +10,6 @@ import com.example.domain.entities.Note
 import com.example.domain.entities.response_models.NoteResponseModel
 import com.example.domain.repositories.NoteRepository
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.launchIn
@@ -39,8 +38,9 @@ class HomeViewModel : BaseViewModel<HomeState,HomeEffect, HomeEvent>()  {
 
     private fun loadNotes() {
         viewModelScope.launch(Dispatchers.IO) {
-            _notes.emit(noteRepository.loadNotes())
-            // TODO update this part of flow
+//            _notes.emit(noteRepository.loadNotes())
+            val notes = noteRepository.loadNotes()
+            notes
         }
     }
 

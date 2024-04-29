@@ -8,7 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.example.core.BaseFragment
-import com.example.core.NotificationHelper
 import com.example.create_new.databinding.FragmentCreateNewBinding
 
 
@@ -37,12 +36,13 @@ class CreateNewFragment : BaseFragment<FragmentCreateNewBinding,CreateNewViewMod
             description.requestFocus()
 
         binding.saveBtn.setOnClickListener {
-            viewModel.postEvent(
-                CreateNewEvent.SaveNote(
-                    binding.NoteTitle.text.toString(),
-                    binding.description.text.toString()
-                )
-            )
+            alertDialog()
+//            viewModel.postEvent(
+//                CreateNewEvent.SaveNote(
+//                    binding.NoteTitle.text.toString(),
+//                    binding.description.text.toString()
+//                )
+//            )
         }
 
 //        binding.saveBtn.setOnClickListener {
@@ -56,26 +56,31 @@ class CreateNewFragment : BaseFragment<FragmentCreateNewBinding,CreateNewViewMod
 //        }
 
     }
-    override fun onEffectUpdate(effect: CreateNewEffect) {
-        when (effect) {
-            CreateNewEffect.OnNoteAdded -> alertDialog()
-        }
-    }
+//    override fun onEffectUpdate(effect: CreateNewEffect) {
+//        when (effect) {
+//            CreateNewEffect.OnNoteAdded -> alertDialog()
+//        }
+//    }
 
 
-    private fun alertDialog(){
+    private fun alertDialog() {
         AlertDialog.Builder(requireContext())
             .setTitle("Note Saving")
             .setMessage("Are you sure saving note?")
-            .setPositiveButton("Yes"){_,_->
-                Toast.makeText(requireContext(),"Note Added",Toast.LENGTH_LONG).show()
-                NotificationHelper.showNotification(requireContext())
+            .setPositiveButton("Yes") { _, _ ->
+                // User clicked "Yes" to save the note
+                saveNote()
             }
-            .setNegativeButton("No"){_,_->
-                Toast.makeText(requireContext(),"Note doesn't added",Toast.LENGTH_LONG).show()
+            .setNegativeButton("No") { _, _ ->
+                // User clicked "No"
+                Toast.makeText(requireContext(), "Note doesn't added", Toast.LENGTH_LONG).show()
             }
             .show()
-
-
+    }
+    private fun saveNote() {
+        val title = binding.NoteTitle.text.toString()
+        val description = binding.description.text.toString()
+        viewModel.postEvent(CreateNewEvent.SaveNote(title, description))
+        Toast.makeText(requireContext(), "Note saved", Toast.LENGTH_LONG).show()
     }
 }

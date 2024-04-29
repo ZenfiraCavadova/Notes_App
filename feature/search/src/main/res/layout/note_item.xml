@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/rounded_edittext"
+    android:padding="16dp"
+    android:layout_marginBottom="16dp">
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:button="@null"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/note_inf_container"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <LinearLayout
+        android:id="@+id/note_inf_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginStart="16dp"
+        app:layout_constraintStart_toEndOf="@id/checkBox"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/note_title"
+            tools:text="Do Math Homework"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/note_description"
+            android:layout_width="match_parent"
+            tools:text="Do Math Homework"
+            android:textColor="@color/dark_grey"
+            android:textSize="13sp"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/date_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Today At 16:45"
+            android:textColor="@color/dark_grey"
+            android:textSize="11sp"
+            android:layout_marginBottom="8dp"/>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
