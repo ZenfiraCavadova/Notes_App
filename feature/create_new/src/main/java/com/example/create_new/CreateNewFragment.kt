@@ -16,7 +16,6 @@ class CreateNewFragment : BaseFragment<FragmentCreateNewBinding,CreateNewViewMod
 //    val viewModel by viewModels<CreateNewViewModel>()
 
     override fun getViewModelClass() = CreateNewViewModel::class.java
-
     override val getViewBinding: (LayoutInflater, ViewGroup?, Boolean) -> FragmentCreateNewBinding = { inflater, viewGroup, value ->
         FragmentCreateNewBinding.inflate(inflater, viewGroup, value)
     }
