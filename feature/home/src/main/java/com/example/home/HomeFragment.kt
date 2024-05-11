@@ -1,5 +1,6 @@
 package com.example.home
 
+import NotesAdapter
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -14,10 +15,11 @@ import androidx.lifecycle.lifecycleScope
 import com.example.core.BaseFragment
 import com.example.domain.entities.Note
 import com.example.home.databinding.FragmentHomeBinding
-import com.example.home.notes_list.NotesAdapter
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 
+@AndroidEntryPoint
 class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel, HomeState, HomeEffect, HomeEvent>() {
 //    lateinit var binding: FragmentHomeBinding
 //    val viewModel by viewModels<HomeViewModel>()

@@ -7,14 +7,21 @@ import com.example.data.repositories.NoteRepositoryImpl
 import com.example.domain.entities.Note
 import com.example.domain.entities.request_models.NoteRequestModel
 import com.example.domain.repositories.NoteRepository
+import com.example.domain.usecase.SaveNoteUseCase
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class CreateNewViewModel():BaseViewModel<CreateNewState,CreateNewEffect,CreateNewEvent>() {
-    private val noteRepository:NoteRepository by lazy { NoteRepositoryImpl() }
+@HiltViewModel
+class CreateNewViewModel @Inject constructor(
+//    private val noteRepository : NoteRepository,
+    private val saveNoteUseCase: SaveNoteUseCase
+):BaseViewModel<CreateNewState,CreateNewEffect,CreateNewEvent>() {
+//    private val noteRepository:NoteRepository by lazy { NoteRepositoryImpl() }
 //    private val _livedata=MutableLiveData<String>()
 //    val liveData: LiveData<List<Note>> =noteRepository.getNote()
 //    fun saveNote(title: String, description: String,creationDate:Long) {
@@ -24,17 +31,6 @@ class CreateNewViewModel():BaseViewModel<CreateNewState,CreateNewEffect,CreateNe
 //        }
 //    }
 
-    init {
-        noteRepository.getNote()
-            .onEach { currentDatabaseValue ->
-                setState(
-                    getCurrentState()
-                        .copy(
-                            notes = currentDatabaseValue
-                        )
-                )
-            }.launchIn(viewModelScope)
-    }
     override fun onEventUpdate(event: CreateNewEvent) {
         when (event) {
             is CreateNewEvent.SaveNote -> saveNote(
@@ -45,8 +41,9 @@ class CreateNewViewModel():BaseViewModel<CreateNewState,CreateNewEffect,CreateNe
     }
     fun saveNote(title: String, description: String) {
         viewModelScope.launch(Dispatchers.IO) {
-            noteRepository.addNoteRemote(NoteRequestModel(title, description))
-            noteRepository.saveNote(Note(title, description, System.currentTimeMillis()))
+//            noteRepository.addNoteRemote(NoteRequestModel(title, description))
+//            noteRepository.saveNote(Note(title, description, System.currentTimeMillis()))
+            saveNoteUseCase.invoke(Note(title, description, System.currentTimeMillis()))
             postEffect(CreateNewEffect.OnNoteAdded)
         }
     }

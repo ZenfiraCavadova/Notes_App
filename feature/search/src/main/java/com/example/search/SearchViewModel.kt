@@ -8,22 +8,29 @@ import com.example.core.BaseViewModel
 import com.example.data.repositories.NoteRepositoryImpl
 import com.example.domain.entities.response_models.NoteResponseModel
 import com.example.domain.repositories.NoteRepository
+import com.example.domain.usecase.GetNoteUseCase
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class SearchViewModel: BaseViewModel<SearchState, SearchEffect, SearchEvent>() {
-    private val noteRepository: NoteRepository by lazy { NoteRepositoryImpl() }
+@HiltViewModel
+class SearchViewModel @Inject constructor(
+    private val noteRepository : NoteRepository,
+    getNoteUseCase: GetNoteUseCase
+): BaseViewModel<SearchState, SearchEffect, SearchEvent>() {
+//    private val noteRepository: NoteRepository by lazy { NoteRepositoryImpl() }
     private val _notes = MutableStateFlow<List<NoteResponseModel>>(emptyList())
     val notes: StateFlow<List<NoteResponseModel>> = _notes
 //    private val _livedata= MutableLiveData<String>()
 //    val liveData:LiveData<String> = _livedata
 
     init {
-        noteRepository.getNote()
+        getNoteUseCase()
             .onEach { currentDatabaseValue ->
                 setState(
                     getCurrentState()

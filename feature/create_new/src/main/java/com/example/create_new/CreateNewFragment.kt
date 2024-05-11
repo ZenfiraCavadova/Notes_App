@@ -10,8 +10,10 @@ import android.widget.Toast
 import com.example.core.BaseFragment
 import com.example.core.NotificationHelper
 import com.example.create_new.databinding.FragmentCreateNewBinding
+import dagger.hilt.android.AndroidEntryPoint
 
 
+@AndroidEntryPoint
 class CreateNewFragment : BaseFragment<FragmentCreateNewBinding,CreateNewViewModel,CreateNewState,CreateNewEffect,CreateNewEvent>() {
 //    lateinit var binding: FragmentCreateNewBinding
 //    val viewModel by viewModels<CreateNewViewModel>()

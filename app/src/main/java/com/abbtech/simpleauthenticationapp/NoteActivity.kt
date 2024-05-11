@@ -15,7 +15,9 @@ import androidx.navigation.ui.setupWithNavController
 import com.abbtech.simpleauthenticationapp.databinding.ActivityNoteBinding
 import androidx.appcompat.widget.Toolbar
 import com.example.data.database.db.DatabaseManager
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class NoteActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration

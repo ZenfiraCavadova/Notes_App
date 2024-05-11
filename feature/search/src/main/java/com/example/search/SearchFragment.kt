@@ -6,9 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.SearchView
 import com.example.core.BaseFragment
-import com.example.home.notes_list.NoteAdapter
+import com.example.search.note_list.NoteAdapter
 import com.example.search.databinding.FragmentSearchBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class SearchFragment : BaseFragment<FragmentSearchBinding, SearchViewModel, SearchState, SearchEffect, SearchEvent>(),SearchView.OnQueryTextListener  {
 //    lateinit var  binding:FragmentSearchBinding
 //    val viewModel by viewModels<SearchViewModel> ()
